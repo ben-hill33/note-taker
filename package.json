@@ -1,0 +1,23 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "A note taking app made from node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben-hill33/note-taker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ben-hill33/note-taker/issues"
+  },
+  "homepage": "https://github.com/ben-hill33/note-taker#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "validator": "^13.1.17"
+  }
+}
