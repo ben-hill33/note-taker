@@ -1,20 +1,61 @@
 // const fs = require('fs');
 // const validator = require('validator');
+const yargs = require('yargs');
 const chalk = require('chalk');
 const getNotes = require('./notes')
-const log = console.log;
 
-// Chalk things
-const error = chalk.bold.red;
+// Customize yargs version
+yargs.version('1.1.0')
 
-// This would be a good thing to export with 404 and 500 errors
-log(error('Error!'));
+// Create add command
+yargs.command({
+  command: 'add',
+  describe: 'Add a new note',
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+    },
+    body: {
+      describe: 'Note body',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler: function (argv) {
+    console.log('Title: ' + argv.title)
+    console.log('Body: ' + argv.body)
+  }
+})
 
-log(chalk.cyan.dim('Should emit small amount of light'))
+// Create remove command
+yargs.command({
+  command: 'remove',
+  describe: 'Remove a note',
+  handler: function () {
+    console.log('Removing the note')
+  }
+})
 
-log(chalk.green(
-  'Here are green words ' +
-  chalk.red.underline.bgGray.bold('then more stuff happens') + ' then sorcery happens'));
+// Create list command
+yargs.command({
+  command: 'list',
+  describe: 'List of notes',
+  handler: function () {
+    console.log('List of your notes')
+  }
+})
 
-log(chalk.bold(getNotes))
+// Create read command
+yargs.command({
+  command: 'read',
+  describe: 'Read a note',
+  handler: function () {
+    console.log('Reading a note')
+  }
+})
 
+// add, remove, read, list
+
+yargs.parse();

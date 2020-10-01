@@ -18,6 +18,7 @@
   "homepage": "https://github.com/ben-hill33/note-taker#readme",
   "dependencies": {
     "chalk": "^4.1.0",
-    "validator": "^13.1.17"
+    "validator": "^13.1.17",
+    "yargs": "^12.0.2"
   }
 }
