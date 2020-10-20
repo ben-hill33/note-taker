@@ -1,7 +1,6 @@
 // const fs = require('fs');
 // const validator = require('validator');
 const yargs = require('yargs');
-const chalk = require('chalk');
 const notes = require('./notes');
 
 // Customize yargs version
@@ -57,11 +56,16 @@ yargs.command({
 yargs.command({
   command: 'read',
   describe: 'Read a note',
-  handler() {
-    console.log('Reading a note')
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler(argv) {
+    notes.readNote(argv.title);
   }
 })
-
-// add, remove, read, list
 
 yargs.parse();
